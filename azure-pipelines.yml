@@ -18,6 +18,12 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
+- script: |
+    sudo apt update
+    sudo apt install -y mono-complete
+    mono --version
+  displayName: 'Install Mono'    
+
 - task: UseNode@1
   displayName: 'Use Node.js $(nodeJSVersion)'
   inputs:
