@@ -10,12 +10,18 @@ variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '8.x'
+  nodeJSVersion: '16.x'
 
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
+
+- task: UseNode@1
+  displayName: 'Use Node.js $(nodeJSVersion)'
+  inputs:
+    version : '$(nodeJSVersion)'      
 
 - task: NuGetToolInstaller@0
   inputs:
